@@ -125,4 +125,25 @@ def main():
     print("Done.")
 
 if __name__ == "__main__":
-    main()
+def main():
+    print("🔥 Starting scan at", datetime.utcnow())
+    print("📊 Scanning tickers:", TICKERS)
+    
+    data = fetch_data(TICKERS)
+    print("✅ Data downloaded")
+    
+    results = calc_signals(data)
+    print(f"🎯 Found {len(results)} stocks matching criteria")
+    
+    for r in results[:3]:
+        print(f"   {r['ticker']}: {r['change_pct']}% | RSI {r['rsi']}")
+    
+    msg = format_message(results)
+    print("📱 Message prepared:")
+    print(msg)
+    
+    print("📤 TELEGRAM_BOT_TOKEN exists:", bool(TELEGRAM_BOT_TOKEN))
+    print("📤 TELEGRAM_CHAT_ID exists:", bool(TELEGRAM_CHAT_ID))
+    
+    send_telegram_message(msg)
+    print("✅ Done.")
