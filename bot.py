@@ -85,25 +85,19 @@ def format_message(results):
         return "⚠️ היום לא נמצאו מניות שעומדות בתנאים."
 
     lines = []
-    lines.append("🚀מניות עם מומנטום")
+    lines.append("🚀 מניות עם מומנטום\n")
 
     for stock in results[:5]:
         line = (
-            f"{stock['ticker']}
-"
-            f"מחיר: {stock['price']}$
-"
-            f"עלייה: {stock['change_pct']}%
-"
-            f"RSI: {stock['rsi']}
-"
-            f"נפח: {stock['volume']}
-"
+            f"{stock['ticker']}\n"
+            f"מחיר: {stock['price']}$\n"
+            f"עלייה: {stock['change_pct']}%\n"
+            f"RSI: {stock['rsi']}\n"
+            f"נפח: {stock['volume']:,}\n\n"
         )
         lines.append(line)
 
-    return "
-".join(lines)
+    return "\n".join(lines)
 
 def send_telegram_message(text):
     if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
