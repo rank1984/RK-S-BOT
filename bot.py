@@ -85,8 +85,7 @@ def format_message(results):
         return "⚠️ היום לא נמצאו מניות שעומדות בתנאים."
 
     lines = []
-    lines.append("🚀 מניות עם מומנטום
-")
+    lines.append("🚀מניות עם מומנטום")
 
     for stock in results[:5]:
         line = (
