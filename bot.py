@@ -125,7 +125,8 @@ def main():
     print("Done.")
 
 if __name__ == "__main__":
-def main():
+
+  def main():
     print("🔥 Starting scan at", datetime.utcnow())
     print("📊 Scanning tickers:", TICKERS)
     
@@ -147,3 +148,7 @@ def main():
     
     send_telegram_message(msg)
     print("✅ Done.")
+
+if __name__ == "__main__":
+    main()
+
